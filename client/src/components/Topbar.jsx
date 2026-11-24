@@ -88,7 +88,7 @@ export default function Topbar() {
       </nav>
 
       <div className="topbar-right">
-         {/* Formulário de busca de questões */}
+        {/* Formulário de busca de questões */}
         <form className="search-form" onSubmit={handleSearchSubmit}>
           <input
             type="text"
@@ -102,8 +102,8 @@ export default function Topbar() {
           </button>
         </form>
 
-         {/* Área de perfil exibida apenas quando existe usuário */}
-        {user && (
+        {/* Área de perfil e botão de login */}
+        {user && user.role !== 'guest' ? (
           <div className="profile-section">
             <button
               type="button"
@@ -125,6 +125,12 @@ export default function Topbar() {
                 </button>
               </div>
             )}
+          </div>
+        ) : (
+          <div className="guest-auth-section">
+            <NavLink to="/login" className="topbar-login-btn">
+              🔑 Entrar
+            </NavLink>
           </div>
         )}
       </div>

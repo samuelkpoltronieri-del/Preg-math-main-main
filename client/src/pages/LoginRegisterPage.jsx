@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { authApi } from '../services/api';
 import { useAuth } from '../contexts/AuthContext';
+import './LoginRegisterPage.css';
 
 export default function LoginRegisterPage() {
 

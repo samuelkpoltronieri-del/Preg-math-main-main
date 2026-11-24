@@ -43,7 +43,7 @@ app.use('/auth', authRoute);
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client', 'dist')));
 
-  app.get('*', (req, res) => {
+  app.use((req, res) => {
     if (req.path.startsWith('/auth') || req.path.startsWith('/busca')) {
       return res.status(404).json({ message: 'Rota não encontrada' });
     }
